@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("DATABASE_HOST") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("STUDENT_REGISTRATION_DATABASE_USERNAME") %>
+  password: <%= ENV.fetch("STUDENT_REGISTRATION_DATABASE_PASSWORD") %>
+
+development:
+  <<: *default
+  database: student_registration_development
+
+test:
+  <<: *default
+  database: student_registration_test
+
+production:
+  <<: *default
+  database: student_registration_production
