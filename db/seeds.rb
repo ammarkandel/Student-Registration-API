@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if Rails.env.development?
+  School.with_deleted.destroy_all
+  Student.with_deleted.destroy_all
+
+  ActiveRecord::Base.connection.reset_pk_sequence!('schools')
+
+  School.create(name: Faker::Name.name)
+  School.create(name: Faker::Name.name)
+
+  Student.create(name: Faker::Name.name, school_id: 1)
+  Student.create(name: Faker::Name.name, school_id: 1)
+  Student.create(name: Faker::Name.name, school_id: 2)
+end
