@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_30_225913) do
+ActiveRecord::Schema.define(version: 2022_12_31_160751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 2022_12_30_225913) do
     t.integer "order"
     t.bigint "school_id"
     t.datetime "deleted_at"
+    t.string "email"
+    t.string "password_digest"
+    t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["school_id"], name: "index_students_on_school_id"
   end
 
