@@ -2,7 +2,7 @@ module Deletable
   extend ActiveSupport::Concern
 
   included do
-    default_scope -> { where(deleted_at: nil).order(id: :asc) }
+    default_scope -> { where(deleted_at: nil) }
     scope :with_deleted, -> { unscope(where: :deleted_at) }
     scope :only_deleted, -> { with_deleted.where.not(where: :deleted_at) }
 

@@ -15,7 +15,7 @@ if Rails.env.development?
   School.create(name: Faker::Name.name)
   School.create(name: Faker::Name.name)
 
-  Student.create(name: Faker::Name.name, school_id: 1)
-  Student.create(name: Faker::Name.name, school_id: 1)
-  Student.create(name: Faker::Name.name, school_id: 2)
+  Student.create(name: Faker::Name.name, school_id: 1, email: 'fake1@gmail.com', password: '123456789', password_confirmation: '123456789')
+  Student.create(name: Faker::Name.name, school_id: 1, email: 'fake2@gmail.com', password: '123456789', password_confirmation: '123456789')
+  Student.create(name: Faker::Name.name, school_id: 2, email: 'fake3@gmail.com', password: '123456789', password_confirmation: '123456789')
 end
